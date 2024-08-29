@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+    <!-- Основной контейнер для всего контента -->
+    <div id="main-content">
+        <!-- Заголовок страницы -->
+        <header>
+            <h1>ToDo List Scloud</h1>
+        </header>
+        
+        <!-- Контейнер для верхних блоков -->
+        <div class="top-blocks">
+            <!-- Блок для отображения количества задач -->
+            <div id="task-summary">
+                <h2>Текущие задачи</h2>
+                <div class="task-summary-details">
+                    <p>🔵 Открыто - <span id="open-count">0</span></p>
+                    <p>🟠 В работе - <span id="in-work-count">0</span></p>
+                    <p>🟢 Закрыто - <span id="done-count">0</span></p>
+                </div>
+            </div>
+
+            <!-- Блок для добавления новой задачи -->
+            <div id="add-task">
+                <h2>Добавить задачу</h2>
+                <div class="add-control">
+                    <button id="add-button">+</button>
+                    <div class="input-container">
+                        <input type="text" id="task-title" placeholder="Текст">
+                        <button id="clear-input" style="display: none;">✖</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок для отображения списка задач -->
+        <div id="task-list">
+            <div class="list-header">
+                <span class="header-item1">Задачи</span>
+                <span class="header-item2">Статус</span>
+            </div>
+            <!-- Список задач, заполняющийся динамически -->
+            <ul id="tasks"></ul>
+        </div>
+
+        <button id="show-more" style="display: none;">Показать еще</button>
+    </div>
+
+    <!-- Второй контейнер для контента -->
+    <div id="second-content">
+        <div id="second-content-details">
+            <!-- Блок с доской задач -->
+            <div id="task-board">
+                <h2>Доска задач</h2>
+                <div class="task-columns-header">
+                    <div class="column-header-one">Открыто</div>
+                    <div class="column-header-two">В работе</div>
+                    <div class="column-header-three">Закрыто</div>
+                </div>
+                <div id="open" class="task-column" data-status="open"></div>
+                <div id="in-work" class="task-column" data-status="in-work"></div>
+                <div id="done" class="task-column" data-status="done"></div>
+            </div>
+        </div>   
+
+        <footer></footer>
+    </div>
+
+    <!-- Popup -->
+    <div id="task-popup" class="popup">
+        <div class="popup-content">
+            <button id="popup-close" class="popup-close">&times;</button>
+            <h2>Изменение задачи</h2>
+            <input type="text" id="popup-task-title" placeholder="Введите текст задачи">
+            <div class="popup-status-buttons">
+                <!-- Кнопки статусов задачи (добавляются динамически) -->
+            </div>
+            <button id="popup-apply">Применить</button>
+            <button id="popup-delete">Удалить задачу</button>
+        </div>
+        <div class="popup-overlay"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
